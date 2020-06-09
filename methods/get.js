@@ -7,8 +7,16 @@ const get = async ({
   apiSecret,
   key,
   bucket,
+  getOptions = ['data'],
 }) => {
+
+  let returnData = {};
   let s3;
+
+  if (getOptions.length === 0) {
+    throw 'No Options specified'
+  }
+
   try {
     s3 = initS3(
       apiKey,
@@ -39,11 +47,12 @@ const get = async ({
     };
 
     const data = await getFile(s3, params);
-    return data;
+    returnData.data = data;
   } catch(error) {
     throw error;
   }
 
+  return returnData;
 };
 
 module.exports = get;
