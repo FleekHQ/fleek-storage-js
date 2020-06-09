@@ -1,3 +1,5 @@
+const axios = require('axios').default;
+
 const hashFromKey = async (bucket, filename) => {
   const url = `52.13.24.153:8889/info?bucket=${bucket}&object=${filename}&objectDataOnly=true`
 

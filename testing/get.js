@@ -10,6 +10,7 @@ const testFunctionGet = async () => {
     apiKey,
     apiSecret,
     key,
+    getOptions: ['hash', 'data', 'publicUrl']
   };
 
   try {
