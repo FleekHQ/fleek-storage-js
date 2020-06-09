@@ -1,10 +1,11 @@
 const get = require('./methods/get');
 const upload = require('./methods/upload');
+const getFileFromHash = require('./methods/getFileFromHash');
 
 const fleekJs = {
   upload,
   get,
-  // TODO: downloadFileFromHash
+  getFileFromHash,
   // TODO: listFiles
   // TODO: listBuckets
 };

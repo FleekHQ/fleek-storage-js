@@ -9,10 +9,15 @@ const upload = async ({
   key,
   bucket,
 }) => {
-  const s3 = initS3(
-    apiKey,
-    apiSecret,
-  );
+  let s3;
+  try {
+    s3 = initS3(
+      apiKey,
+      apiSecret,
+    );
+  } catch(error) {
+    throw error;
+  }
 
   if (!data) {
     throw 'No file to upload';

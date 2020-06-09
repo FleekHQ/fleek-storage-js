@@ -1,16 +1,21 @@
 const initS3 = require('../utils/init-s3');
+const getBucket = require('../utils/get-bucket');
+const getFile = require('../utils/get-file');
 
 const get = async ({
   apiKey,
   apiSecret,
+  key,
+  bucket,
 }) => {
-  const s3 = initS3(
-    apiKey,
-    apiSecret,
-  );
-
-  if (!data) {
-    throw 'No file to upload';
+  let s3;
+  try {
+    s3 = initS3(
+      apiKey,
+      apiSecret,
+    );
+  } catch(error) {
+    throw error;
   }
 
   if (!key) {
@@ -21,13 +26,24 @@ const get = async ({
   
   if (!bucket) {
     try {
-      bucket = await getBucket(s3);
+      bucketName = await getBucket(s3);
     } catch(error) {
       throw error;
     }
   }
 
-  return s3;
+  try {
+    const params = {
+      Bucket: bucketName,
+      Key: key,
+    };
+
+    const data = await getFile(s3, params);
+    return data;
+  } catch(error) {
+    throw error;
+  }
+
 };
 
 module.exports = get;
