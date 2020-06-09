@@ -1,13 +1,14 @@
 const initS3 = require('../utils/init-s3');
 const getBucket = require('../utils/get-bucket');
 const getFile = require('../utils/get-file');
+const { GET_OPTIONS } = require('../utils/constants');
 
 const get = async ({
   apiKey,
   apiSecret,
   key,
   bucket,
-  getOptions = ['data'],
+  getOptions = [GET_OPTIONS.DATA],
 }) => {
 
   let returnData = {};
