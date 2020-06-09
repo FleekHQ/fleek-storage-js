@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 
 const hashFromKey = async (bucket, filename) => {
-  const url = `52.13.24.153:8889/info?bucket=${bucket}&object=${filename}&objectDataOnly=true`
+  const url = `http://52.13.24.153:8889/info?bucket=${bucket}&object=${filename}&objectDataOnly=true`
 
   const params = {
     method: 'get',
@@ -10,7 +10,6 @@ const hashFromKey = async (bucket, filename) => {
 
   try {
     const response = await axios(params);
-
     return response.data.hash;
   } catch(e) {
     throw e;

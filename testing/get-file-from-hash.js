@@ -10,7 +10,7 @@ const testFunctionGet = async () => {
 
   try {
     const result = await fleek.getFileFromHash(input);
-    console.log('esult', result);
+    console.log('result', result);
   } catch(e) {
     console.log('error', e);
   }
