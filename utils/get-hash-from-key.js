@@ -12,9 +12,8 @@ const hashFromKey = async (bucket, filename) => {
     const response = await axios(params);
     return response.data.hash;
   } catch(e) {
-    throw e;
+    return null;
   }
-
 }
 
 module.exports = hashFromKey;
