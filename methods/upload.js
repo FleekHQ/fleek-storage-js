@@ -1,6 +1,7 @@
 const initS3 = require('../utils/init-s3');
 const getBucket = require('../utils/get-bucket');
 const uploadFile = require('../utils/upload-file');
+const getPublicUrl = require('../utils/get-public-url');
 
 const upload = async ({
   apiKey,
@@ -46,7 +47,16 @@ const upload = async ({
 
   try {
     const result = await uploadFile(s3, params);
-    return result;
+
+    const returnData = {
+      hash: result.hash,
+      hashV0: result.hashV0,
+      key,
+      bucket: bucketName,
+      publicUrl: getPublicUrl(bucketName, key),
+    };
+
+    return returnData;
   } catch(error) {
     throw error;
   }

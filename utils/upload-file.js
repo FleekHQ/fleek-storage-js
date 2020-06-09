@@ -6,11 +6,8 @@ const uploadFile = (s3, params) => new Promise((resolve, reject) => {
       const hashV0 = response.httpResponse.headers['x-fleek-ipfs-hash-v0'];
 
       resolve ({
-        success: true,
         hash,
         hashV0,
-        key: params.Key,
-        bucket: params.Bucket,
       });
     })
     .on('error', error => {
