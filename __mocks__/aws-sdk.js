@@ -14,7 +14,8 @@ module.exports =  {
       ],
     }));
 
-    this.on = (value, callback) => {
+    // putObject
+    this.onPutObject = (value, callback) => {
       if (value === 'success') {
         callback({
           httpResponse: {
@@ -26,13 +27,33 @@ module.exports =  {
         })
       }
       return {
-        on: this.on,
+        on: this.onPutObject,
         send: () => {},
       };
     };
 
     this.putObject= () => ({
-      on: this.on,
+      on: this.onPutObject,
+      send: () => {},
+    })
+
+    //getObject
+    this.onGetObject = (value, callback) => {
+      if (value === 'success') {
+        callback({
+          data: {
+            Body: 'file-content'
+          }
+        })
+      }
+      return {
+        on: this.onGetObject,
+        send: () => {},
+      };
+    };
+
+    this.getObject= () => ({
+      on: this.onGetObject,
       send: () => {},
     })
   }
