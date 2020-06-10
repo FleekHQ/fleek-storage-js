@@ -10,42 +10,33 @@ const upload = async ({
   key,
   bucket,
 }) => {
-  let s3;
   try {
-    s3 = initS3(
+    const s3 = initS3(
       apiKey,
       apiSecret,
     );
-  } catch(error) {
-    throw error;
-  }
 
-  if (!data) {
-    throw 'No file to upload';
-  }
-
-  if (!key) {
-    throw 'No file key was specified'
-  }
-
-  let bucketName = bucket;
-  
-  if (!bucket) {
-    try {
-      bucketName = await getBucket(s3);
-    } catch(error) {
-      throw error;
+    if (!data) {
+      throw 'No file to upload';
     }
-  }
 
-  const params = {
-    Bucket: bucketName,
-    Key: key,
-    Body: data,
-    ACL: 'public-read',
-  };
+    if (!key) {
+      throw 'No file key was specified'
+    }
 
-  try {
+    let bucketName = bucket;
+    
+    if (!bucketName) {
+      bucketName = await getBucket(s3);
+    }
+
+    const params = {
+      Bucket: bucketName,
+      Key: key,
+      Body: data,
+      ACL: 'public-read',
+    };
+
     const result = await uploadFile(s3, params);
 
     const returnData = {
