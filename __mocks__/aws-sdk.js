@@ -13,5 +13,27 @@ module.exports =  {
         { Name: 'bucket-2' },
       ],
     }));
+
+    this.on = (value, callback) => {
+      if (value === 'success') {
+        callback({
+          httpResponse: {
+            headers: {
+              'x-fleek-ipfs-hash': '123',
+              'x-fleek-ipfs-hash-v0': '123-v0',
+            }
+          }
+        })
+      }
+      return {
+        on: this.on,
+        send: () => {},
+      };
+    };
+
+    this.putObject= () => ({
+      on: this.on,
+      send: () => {},
+    })
   }
 }
