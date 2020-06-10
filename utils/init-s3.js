@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const { storageEndpoint } = require('../config');
 
 const initS3 = (apiKey, apiSecret) => {
   if (!apiKey || !apiSecret) {
@@ -9,7 +10,7 @@ const initS3 = (apiKey, apiSecret) => {
     apiVersion: '2006-03-01',
     accessKeyId: apiKey,
     secretAccessKey: apiSecret,
-    endpoint: 'https://storageapi.fleek.co',
+    endpoint: storageEndpoint,
     region: 'us-east-1',
     s3ForcePathStyle: true
   });

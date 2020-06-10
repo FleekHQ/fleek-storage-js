@@ -1,7 +1,8 @@
 const axios = require('axios').default;
+const { infoApi } = require('../config');
 
 const hashFromKey = async (bucket) => {
-  const url = `http://52.13.24.153:8889/info?bucket=${bucket}`
+  const url = `${infoApi}?bucket=${bucket}`
 
   const params = {
     method: 'get',

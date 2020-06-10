@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+const { ipfsGateway } = require('../config');
 
 const getFileFromHash = async ({
   hash,
@@ -9,7 +10,7 @@ const getFileFromHash = async ({
 
   const params = {
     method: 'get',
-    url: `https://ipfs.fleek.co/ipfs/${hash}`,
+    url: `${ipfsGateway}/${hash}`,
   };
 
   try {
