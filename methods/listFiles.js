@@ -9,27 +9,18 @@ const listFiles = async ({
   apiSecret,
   bucket,
 }) => {
-  let bucketName = bucket;
-  let s3;
   try {
-    s3 = initS3(
+    const s3 = initS3(
       apiKey,
       apiSecret,
     );
-  } catch(error) {
-    throw error;
-  }
 
-  if (!bucketName) {
-    try {
+    let bucketName = bucket;
+    if (!bucketName) {
       bucketName = await getBucket(s3);
-    } catch(error) {
-      throw error;
     }
-  }
 
-  let files;
-  try {
+    let files;
     files = await getFileList(s3, bucketName);
 
     const promises = files.map(key => getHashFromKey(bucketName, key))
