@@ -63,7 +63,6 @@ const get = async ({
     fileData[GET_OPTIONS.PUBLIC_URL] = publicUrl;
   }
 
-  // TODO: optimize with Promise.all when both data and hash is requested
   if(getOptions.includes(GET_OPTIONS.HASH)) {
     try {
       fileData[GET_OPTIONS.HASH] = await getHashFromKey(fileData[GET_OPTIONS.BUCKET], fileData[GET_OPTIONS.KEY]);
