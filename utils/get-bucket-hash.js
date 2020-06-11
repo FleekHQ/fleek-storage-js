@@ -1,12 +1,23 @@
 const axios = require('axios').default;
-const { infoApi } = require('../config');
+const { fleekGraphQl } = require('../config');
 
 const hashFromKey = async (bucket) => {
-  const url = `${infoApi}?bucket=${bucket}`
 
   const params = {
-    method: 'get',
-    url,
+    method: 'post',
+    url: fleekGraphQl,
+    data: {
+      query: `
+        query getBucketBySlug($slug: String!) {
+          getBucketBySlug(slug: $slug) {
+            hash
+          }
+        }
+      `,
+      variables: {
+        slug: bucket,
+      }
+    },
   };
 
   try {
