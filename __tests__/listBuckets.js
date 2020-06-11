@@ -10,11 +10,11 @@ it('returns a list of buckets', async () => {
   const expectedResult = [
     {
       name: 'bucket-1',
-      hash: '123'
+      // hash: '123'
     },
     {
         name: 'bucket-2',
-        hash: '123'
+        // hash: '123'
     }
   ];
 
