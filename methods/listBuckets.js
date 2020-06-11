@@ -1,6 +1,6 @@
 const initS3 = require('../utils/init-s3');
 const getBucketList = require('../utils/get-bucket-list');
-const getBucketHash = require('../utils/get-bucket-hash');
+// const getBucketHash = require('../utils/get-bucket-hash');
 
 const listBuckets = async ({
   apiKey,
@@ -14,16 +14,16 @@ const listBuckets = async ({
 
     const buckets = await getBucketList(s3);
 
-    const promises = buckets.map(bucket => getBucketHash(bucket));
+    const promises = buckets.map( async(bucket, index) => {
+      // const hash = await getBucketHash(bucket);
 
-    const hashes = await Promise.all(promises);
+      return ({
+        name: bucket,
+        // hash,
+      })
+    });
 
-    const returnData = buckets.map((bucket, index) => ({
-      name: bucket,
-      hash: hashes[index],
-    }));
-
-    return returnData;
+    return Promise.all(promises);
 
   } catch(error) {
     throw error;

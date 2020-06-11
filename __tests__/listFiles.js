@@ -5,6 +5,7 @@ it('returns a list of files', async () => {
   const files = await listFiles({
     apiKey: '123',
     apiSecret: 'abc',
+    getOptions: ['key', 'bucket', 'publicUrl', 'hash'],
   });
 
   const expectedResult = [
