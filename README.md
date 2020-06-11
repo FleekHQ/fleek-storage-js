@@ -4,21 +4,21 @@ Fleek Storage Js is an SDK to interact with Fleek Storage.
 # Installation
 The package can be installed through npm.
 
-`npm install fleek-storage-js`
+`npm install @fleekhq/fleek-storage-js`
 
 It can also be installed through yarn.
 
-`yarn add fleek-storage-js`
+`yarn add @fleekhq/fleek-storage-js`
 
 # Importing
 
 The SDK can be imported using an `import` statement.
 
-`import fleekStorage from 'fleek-storage-js'`
+`import fleekStorage from '@fleekhq/fleek-storage-js'`
 
 The SDK can also be imported using a `require`.
 
-`const fleekStorage = require('fleek-storage-js')`
+`const fleekStorage = require('@fleekhq/fleek-storage-js')`
 
 # Getting Api Keys
 
