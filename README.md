@@ -130,7 +130,7 @@ const buckets = await fleekStorage.listBuckets({
 })
 ```
 
-### Input parameters of listFiles
+### Input parameters of listBuckets
 
 |param  	|type  	|description  	|
 |-:	|-	|-	|
