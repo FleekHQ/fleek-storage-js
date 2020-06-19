@@ -8,7 +8,7 @@ const { GET_OPTIONS } = require('../utils/constants');
 const listFiles = async ({
   apiKey,
   apiSecret,
-  bucket,
+  bucket = null,
   getOptions = [GET_OPTIONS.KEY, GET_OPTIONS.BUCKET, GET_OPTIONS.PUBLIC_URL],
 }) => {
   const possibleGetOptions = [
