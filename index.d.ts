@@ -4,7 +4,7 @@ export interface uploadInput {
   data: any,
   key: string,
   bucket?: string,
-};
+}
 
 export interface uploadOutput {
   hash: string,
@@ -19,8 +19,6 @@ export type uploadType = (input: uploadInput) => Promise<uploadOutput>;
 export interface getFileFromHashInput {
   hash: string,
 }
-
-export type getFileFromHashType = (input: getFileFromHashInput) => Promise<any>;
 
 export enum getOptionsValues {
   data,
@@ -46,8 +44,6 @@ export interface getOutput {
   publicUrl?: string,
 }
 
-export type getType = (input: getInput) => Promise<getOutput>;
-
 export interface listBucketsInput {
   apiKey: string,
   apiSecret: string,
@@ -56,8 +52,6 @@ export interface listBucketsInput {
 export interface listBucketsOutput {
   name: string,
 }
-
-export type listBucketsType = (input: listBucketsInput) => Promise<listBucketsOutput[]>;
 
 export enum getOptionsListFiles {
   key,
@@ -80,16 +74,10 @@ export interface listFilesOutput {
   hash?: string,
 }
 
-export type listFilesType = (input: listFilesInput) => Promise<listFilesOutput[]>;
-
-export interface fleekJsMethods {
-  upload: uploadType,
-  get: getType,
-  getFileFromHash: getFileFromHashType,
-  listBuckets: listBucketsType,
-  listFiles: listFilesType,
+declare module "@fleekhq/fleek-storage-js" {
+  export const upload: uploadType;
+  export const get: (input: getInput) => Promise<getOutput>;
+  export const getFileFromHash: (input: getFileFromHashInput) => Promise<any>;
+  export const listBuckets: (input: listBucketsInput) => Promise<listBucketsOutput[]>;
+  export const listFiles: (input: listFilesInput) => Promise<listFilesOutput[]>;
 }
-
-declare const fleekJs: fleekJsMethods;
-
-export default fleekJs;
