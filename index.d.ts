@@ -14,13 +14,13 @@ export interface uploadOutput {
   publicUrl: string,
 }
 
-export type uploadType = (input: uploadInput) => uploadOutput;
+export type uploadType = (input: uploadInput) => Promise<uploadOutput>;
 
 export interface getFileFromHashInput {
   hash: string,
 }
 
-export type getFileFromHashType = (input: getFileFromHashInput) => any;
+export type getFileFromHashType = (input: getFileFromHashInput) => Promise<any>;
 
 export enum getOptionsValues {
   data,
@@ -46,7 +46,7 @@ export interface getOutput {
   publicUrl?: string,
 }
 
-export type getType = (input: getInput) => getOutput;
+export type getType = (input: getInput) => Promise<getOutput>;
 
 export interface listBucketsInput {
   apiKey: string,
@@ -57,7 +57,7 @@ export interface listBucketsOutput {
   name: string,
 }
 
-export type listBucketsType = (input: listBucketsInput) => listBucketsOutput[];
+export type listBucketsType = (input: listBucketsInput) => Promise<listBucketsOutput[]>;
 
 export enum getOptionsListFiles {
   key,
@@ -80,7 +80,7 @@ export interface listFilesOutput {
   hash?: string,
 }
 
-export type listFilesType = (input: listFilesInput) => listFilesOutput[];
+export type listFilesType = (input: listFilesInput) => Promise<listFilesOutput[]>;
 
 export interface fleekJsMethods {
   upload: uploadType,
