@@ -64,7 +64,7 @@ export interface listFilesInput {
   apiKey: string,
   apiSecret: string,
   bucket?: string,
-  getOptions?: getOptionsListFiles,
+  getOptions?: getOptionsListFiles[],
 }
 
 export interface listFilesOutput {
