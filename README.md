@@ -147,6 +147,9 @@ Example of usage:
 ```
 const myFile = await fleekStorage.getFileFromHash({
   hash: 'bafybeige4bhzjvrptn7fdz7mqgigzoczcliqpuo7km4jm7vgjg2pbmuhna',
+  getFileFromHashOptions: [
+    'buffer',
+  ],
 })
 ```
 
@@ -155,3 +158,4 @@ const myFile = await fleekStorage.getFileFromHash({
 |param  	|type  	|description  	|
 |-:	|-	|-	|
 | hash 	| String 	|  The hash of the requested file	|
+| getFileFromHashOptions 	| Array, optional, defaults to [] 	| An array specifying additional options when it comes to fetching by hash. Possible values for the array includes `buffer` (this returns the whole file at once instead of chunks) |

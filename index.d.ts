@@ -18,6 +18,11 @@ export type uploadType = (input: uploadInput) => Promise<uploadOutput>;
 
 export interface getFileFromHashInput {
   hash: string,
+  getFileFromHashOptions?: getOptionsValues[],
+}
+
+export interface getFileFromHashOptionsValues {
+  buffer: string,
 }
 
 export enum getOptionsValues {
