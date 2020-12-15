@@ -4,6 +4,8 @@ const HASH = 'hash';
 const KEY = 'key';
 const PUBLIC_URL = 'publicUrl';
 
+const BUFFER = 'buffer';
+
 module.exports = {
   GET_OPTIONS: {
     DATA: DATA,
@@ -12,4 +14,7 @@ module.exports = {
     KEY: KEY,
     PUBLIC_URL: PUBLIC_URL,
   },
+  GET_FILE_FROM_HASH_OPTIONS: {
+    BUFFER: BUFFER,
+  }
 };
