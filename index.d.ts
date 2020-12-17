@@ -21,8 +21,8 @@ export interface getFileFromHashInput {
   getFileFromHashOptions?: getFileFromHashOptionsValues[],
 }
 
-export interface getFileFromHashOptionsValues {
-  buffer: string,
+export enum getFileFromHashOptionsValues {
+  buffer,
 }
 
 export enum getOptionsValues {
