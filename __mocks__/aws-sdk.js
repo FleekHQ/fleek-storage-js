@@ -15,27 +15,9 @@ module.exports =  {
     }));
 
     // putObject
-    this.onPutObject = (value, callback) => {
-      if (value === 'success') {
-        callback({
-          httpResponse: {
-            headers: {
-              'x-fleek-ipfs-hash': '123',
-              'x-fleek-ipfs-hash-v0': '123-v0',
-            }
-          }
-        })
-      }
-      return {
-        on: this.onPutObject,
-        send: () => {},
-      };
-    };
-
-    this.putObject= () => ({
-      on: this.onPutObject,
-      send: () => {},
-    })
+    this.putObject = () => ({
+      promise: () => Promise.resolve({ ETag: '"123"' }),
+    });
 
     //getObject
     this.onGetObject = (value, callback) => {

@@ -12,7 +12,7 @@ it('uploads a file', async () => {
   const expectedResult = {
     "bucket": "bucket-1",
     "hash": "123",
-    "hashV0": "123-v0",
+    "hashV0": "123",
     "key": "my-file",
     "publicUrl": "https://bucket-1.storage.fleek.co/my-file"
   };
