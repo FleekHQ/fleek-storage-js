@@ -14,6 +14,11 @@ module.exports =  {
       ],
     }));
 
+    this.deleteObject = jest.fn((params, callback) => callback(null, {
+      bucket: params.bucket,
+      key: params.key,
+    }));
+
     // putObject
     this.onPutObject = (value, callback) => {
       if (value === 'success') {
