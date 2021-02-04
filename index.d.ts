@@ -79,10 +79,23 @@ export interface listFilesOutput {
   hash?: string,
 }
 
+export interface deleteFileInoput {
+  apiKey: string,
+  apiSecret: string,
+  bucket?: string,
+  key: string,
+}
+
+export interface deleteFileOutput {
+  key: string,
+  bucket: string,
+}
+
 declare module "@fleekhq/fleek-storage-js" {
   export const upload: uploadType;
   export const get: (input: getInput) => Promise<getOutput>;
   export const getFileFromHash: (input: getFileFromHashInput) => Promise<any>;
   export const listBuckets: (input: listBucketsInput) => Promise<listBucketsOutput[]>;
   export const listFiles: (input: listFilesInput) => Promise<listFilesOutput[]>;
+  export const deleteFile: (input: deleteFileInput) => Promise<deleteFileOutput>;
 }
