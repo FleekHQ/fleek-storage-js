@@ -79,7 +79,7 @@ export interface listFilesOutput {
   hash?: string,
 }
 
-export interface deleteFileInoput {
+export interface deleteFileInput {
   apiKey: string,
   apiSecret: string,
   bucket?: string,
