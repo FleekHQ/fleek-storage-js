@@ -14,7 +14,7 @@ it('gets a file', async () => {
     data: 'file-content',
     key: 'my-file',
     hash: '123',
-    publicUrl: 'https://bucket-1.storage.fleek.co/my-file'
+    publicUrl: 'https://storageapi.fleek.co/bucket-1/my-file'
   };
 
   expect(file).toEqual(expectedResult);

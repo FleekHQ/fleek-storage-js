@@ -13,13 +13,13 @@ it('returns a list of files', async () => {
       key: 'file-1',
       bucket: 'bucket-1',
       hash: '123',
-      publicUrl: 'https://bucket-1.storage.fleek.co/file-1'
+      publicUrl: 'https://storageapi.fleek.co/bucket-1/file-1'
     },
     {
       key: 'file-2',
       bucket: 'bucket-1',
       hash: '123',
-      publicUrl: 'https://bucket-1.storage.fleek.co/file-2'
+      publicUrl: 'https://storageapi.fleek.co/bucket-1/file-2'
     }
   ];
 

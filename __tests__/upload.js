@@ -14,7 +14,7 @@ it('uploads a file', async () => {
     "hash": "123",
     "hashV0": "123-v0",
     "key": "my-file",
-    "publicUrl": "https://bucket-1.storage.fleek.co/my-file"
+    "publicUrl": "https://storageapi.fleek.co/bucket-1/my-file"
   };
 
   expect(file).toEqual(expectedResult);
