@@ -3,7 +3,7 @@ const { storageEndpoint } = require('../config');
 
 const initS3 = (apiKey, apiSecret) => {
   if (!apiKey || !apiSecret) {
-    throw new Error("Missing Fleek credentials.");
+    throw new Error('Missing Fleek credentials.');
   }
 
   const s3 = new AWS.S3({
@@ -12,7 +12,7 @@ const initS3 = (apiKey, apiSecret) => {
     secretAccessKey: apiSecret,
     endpoint: storageEndpoint,
     region: 'us-east-1',
-    s3ForcePathStyle: true
+    s3ForcePathStyle: true,
   });
 
   return s3;
