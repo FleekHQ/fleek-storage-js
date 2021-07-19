@@ -21,16 +21,16 @@ export interface getFileFromHashInput {
   getFileFromHashOptions?: string[],
 }
 
-// export enum getFileFromHashOptionsValues {
-//   buffer = 'buffer',
-// }
+export enum getFileFromHashOptionsValues {
+  buffer = 'buffer',
+}
 
 export enum getOptionsValues {
-  data,
-  bucket,
-  hash,
-  key,
-  publicUrl,
+  data = 'data',
+  bucket = 'bucket',
+  hash = 'hash',
+  key = 'key',
+  publicUrl = 'publicUrl',
 }
 
 export interface getInput {
@@ -38,7 +38,7 @@ export interface getInput {
   apiSecret: string,
   key: string,
   bucket?: string,
-  getOptions?: getOptionsValues[],
+  getOptions?: string[],
 }
 
 export interface getOutput {
@@ -59,17 +59,17 @@ export interface listBucketsOutput {
 }
 
 export enum getOptionsListFiles {
-  key,
-  bucket,
-  publicUrl,
-  hash,
+  key = 'key',
+  bucket = 'bucket',
+  publicUrl = 'publicUrl',
+  hash = 'hash',
 }
 
 export interface listFilesInput {
   apiKey: string,
   apiSecret: string,
   bucket?: string,
-  getOptions?: getOptionsListFiles[],
+  getOptions?: string[],
 }
 
 export interface listFilesOutput {
@@ -79,10 +79,23 @@ export interface listFilesOutput {
   hash?: string,
 }
 
+export interface deleteFileInput {
+  apiKey: string,
+  apiSecret: string,
+  bucket?: string,
+  key: string,
+}
+
+export interface deleteFileOutput {
+  key: string,
+  bucket: string,
+}
+
 declare module "@fleekhq/fleek-storage-js" {
   export const upload: uploadType;
   export const get: (input: getInput) => Promise<getOutput>;
   export const getFileFromHash: (input: getFileFromHashInput) => Promise<any>;
   export const listBuckets: (input: listBucketsInput) => Promise<listBucketsOutput[]>;
   export const listFiles: (input: listFilesInput) => Promise<listFilesOutput[]>;
+  export const deleteFile: (input: deleteFileInput) => Promise<deleteFileOutput>;
 }

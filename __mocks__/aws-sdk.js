@@ -14,6 +14,11 @@ module.exports =  {
       ],
     }));
 
+    this.deleteObject = jest.fn((params, callback) => callback(null, {
+      bucket: params.bucket,
+      key: params.key,
+    }));
+
     // putObject
     this.putObject = () => ({
       promise: () => Promise.resolve({ ETag: '"bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq"' }),

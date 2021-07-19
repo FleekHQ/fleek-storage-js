@@ -1,5 +1,5 @@
 const getPublicUrl = (bucket, filename) => (
-  `https://${bucket}.storage.fleek.co/${filename}`
+  `https://storageapi.fleek.co/${bucket}/${filename}`
 );
 
 module.exports = getPublicUrl;
