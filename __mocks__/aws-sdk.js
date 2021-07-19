@@ -16,7 +16,7 @@ module.exports =  {
 
     // putObject
     this.putObject = () => ({
-      promise: () => Promise.resolve({ ETag: '"123"' }),
+      promise: () => Promise.resolve({ ETag: '"bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq"' }),
     });
 
     //getObject

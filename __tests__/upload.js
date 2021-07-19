@@ -1,3 +1,6 @@
+// make these available during the tests
+global.TextDecoder = require('util').TextDecoder
+global.TextEncoder = require('util').TextEncoder
 
 const upload = require('../methods/upload');
 
@@ -10,11 +13,11 @@ it('uploads a file', async () => {
   });
 
   const expectedResult = {
-    "bucket": "bucket-1",
-    "hash": "123",
-    "hashV0": "123",
-    "key": "my-file",
-    "publicUrl": "https://bucket-1.storage.fleek.co/my-file"
+    'bucket': 'bucket-1',
+    'hash': 'bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq',
+    'hashV0': 'QmSgvgwxZGaBLqkGyWemEDqikCqU52XxsYLKtdy3vGZ8uq',
+    'key': 'my-file',
+    'publicUrl': 'https://bucket-1.storage.fleek.co/my-file'
   };
 
   expect(file).toEqual(expectedResult);
