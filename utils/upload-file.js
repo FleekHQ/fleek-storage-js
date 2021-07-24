@@ -1,19 +1,23 @@
-const uploadFile = (s3, params) => new Promise((resolve, reject) => {
-  const request = s3.putObject(params);
-  request
-    .on('success', (response) => {
-      const hash = response.httpResponse.headers['x-fleek-ipfs-hash'] || response.httpResponse.headers['X-Fleek-Ipfs-Hash'];
-      const hashV0 = response.httpResponse.headers['x-fleek-ipfs-hash-v0'] || response.httpResponse.headers['X-Fleek-Ipfs-Hash-V0'];
+const CID = require('cids');
 
-      resolve ({
-        hash,
-        hashV0,
-      });
-    })
-    .on('error', error => {
-      reject(error);
-    })
-    .send();
-});
+const uploadFile = async (s3, params) => {
+  const { ETag } = await s3.putObject(params).promise();
+  const hash = ETag.replace(/^"|"$/g, '');
+
+  const cidObj = new CID(hash);
+
+  let cidv0;
+
+  const cidv1 = cidObj.toV1().toString();
+
+  try {
+    cidv0 = cidObj.toV0().toString();
+  } catch (e) {
+    // fallback when cbor is used
+    cidv0 = cidv1;
+  }
+
+  return { hash: cidv1, hashV0: cidv0 };
+};
 
 module.exports = uploadFile;
