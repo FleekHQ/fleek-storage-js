@@ -9,6 +9,7 @@ const listFiles = async ({
   apiKey,
   apiSecret,
   bucket = null,
+  prefix = '',
   getOptions = [GET_OPTIONS.KEY, GET_OPTIONS.BUCKET, GET_OPTIONS.PUBLIC_URL],
 }) => {
   const possibleGetOptions = [
@@ -43,7 +44,7 @@ const listFiles = async ({
       bucketName = await getBucket(s3);
     }
 
-    const files = await getFileList(s3, bucketName);
+    const files = await getFileList(s3, bucketName, prefix);
 
     const promises = files.map(async (key, index) => {
       if (getOptions.includes(GET_OPTIONS.HASH)) {

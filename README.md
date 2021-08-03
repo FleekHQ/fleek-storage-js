@@ -125,6 +125,7 @@ Example of usage:
 const files = await fleekStorage.listFiles({
   apiKey: 'my-key',
   apiSecret: 'my-secret',
+  prefix: 'my-folder',
   getOptions: [
     'bucket',
     'key',
@@ -141,6 +142,7 @@ const files = await fleekStorage.listFiles({
 | apiKey 	| String 	|  The api key used for authentication	|
 | apiSecret 	| String 	|  The api secret used for authentication	|
 | bucket 	| String, optional, defaults to the default account bucket 	|  The name of the bucket containing the file. A bucket is created by default with every Fleek account	|
+| prefix  |  String, optional, defaults to the empty string  |  The name of the folder you want to list files in. Can be used to recurse through the folder structure in Fleek Storage |
 | getOptions 	| Array, optional, defaults to ['key', 'bucket', 'publicUrl'] 	| An array specifying what type of information to retrieve concerning the file.	Possible values for the array includes `bucket`, `hash`, `key`, `publicUrl`|
 
 

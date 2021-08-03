@@ -1,6 +1,7 @@
-const getFileList = (s3, bucket) => new Promise((resolve, reject) => {
+const getFileList = (s3, bucket, prefix) => new Promise((resolve, reject) => {
   const params = {
     Bucket: bucket,
+    Prefix: prefix,
   };
 
   s3.listObjectsV2(params, (err, data) => {
