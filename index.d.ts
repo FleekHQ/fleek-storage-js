@@ -69,6 +69,7 @@ export interface listFilesInput {
   apiKey: string,
   apiSecret: string,
   bucket?: string,
+  prefix?: string,
   getOptions?: string[],
 }
 

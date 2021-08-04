@@ -25,3 +25,29 @@ it('returns a list of files', async () => {
 
   // expect(files).toEqual(expectedResult);
 });
+
+it('returns a list of files nested in a folder', async () => {
+    // const files = await listFiles({
+    //   apiKey: '123',
+    //   apiSecret: 'abc',
+    //   prefix: 'folder',
+    //   getOptions: ['key', 'bucket', 'publicUrl', 'hash'],
+    // });
+
+    // const expectedResult = [
+    //   {
+    //     key: 'folder/file-3',
+    //     bucket: 'bucket-1',
+    //     hash: '123',
+    //     publicUrl: 'https://storageapi.fleek.co/bucket-1/folder/file-3'
+    //   },
+    //   {
+    //     key: 'folder/file-4',
+    //     bucket: 'bucket-1',
+    //     hash: '123',
+    //     publicUrl: 'https://storageapi.fleek.co/bucket-1/folder/file-4'
+    //   }
+    // ];
+
+    // expect(files).toEqual(expectedResult);
+})
