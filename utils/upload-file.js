@@ -1,10 +1,10 @@
-const CID = require('cids');
+const { CID } = require('multiformats');
 
 const uploadFile = async (s3, params) => {
   const { ETag } = await s3.putObject(params).promise();
   const hash = ETag.replace(/^"|"$/g, '');
 
-  const cidObj = new CID(hash);
+  const cidObj = CID.parse(hash);
 
   let cidv0;
 

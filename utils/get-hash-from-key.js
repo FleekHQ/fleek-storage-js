@@ -1,11 +1,11 @@
 const axios = require('axios');
-const CID = require('cids');
+const { CID } = require('multiformats');
 
 const { storageEndpoint } = require('../config');
 
 const convertToV0CID = (v1) => {
   const formattedv1CID = v1.replace(/\"/g, '');
-  const c = new CID(formattedv1CID);
+  const c = CID.parse(formattedv1CID);
   return c.toV0().toString();
 };
 

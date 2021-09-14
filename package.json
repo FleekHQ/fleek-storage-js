@@ -1,6 +1,6 @@
 {
   "name": "@fleekhq/fleek-storage-js",
-  "version": "1.0.17",
+  "version": "1.0.18-beta.3",
   "description": "JS SDK to interact with Fleek Storage",
   "main": "index.js",
   "scripts": {
@@ -21,9 +21,8 @@
     "jest": "^26.0.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.691.0",
+    "aws-sdk": "^2.989.0",
     "axios": "^0.21.1",
-    "cids": "^1.1.7",
-    "text-encoding": "^0.7.0"
+    "multiformats": "^9.4.7"
   }
 }
