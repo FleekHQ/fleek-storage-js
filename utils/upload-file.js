@@ -1,23 +1,39 @@
 const { CID } = require('multiformats');
 
-const uploadFile = async (s3, params) => {
-  const { ETag } = await s3.putObject(params).promise();
-  const hash = ETag.replace(/^"|"$/g, '');
 
-  const cidObj = CID.parse(hash);
+const uploadFile = (s3, params, cb = () => {}) => (new Promise((resolve, reject) => {
+  const request = s3.putObject(params);
 
-  let cidv0;
+  request.on('complete', (response) => {
+    const { data: { ETag } } = response;
 
-  const cidv1 = cidObj.toV1().toString();
+    const hash = ETag.replace(/^"|"$/g, '');
 
-  try {
-    cidv0 = cidObj.toV0().toString();
-  } catch (e) {
-    // fallback when cbor is used
-    cidv0 = cidv1;
-  }
+    const cidObj = CID.parse(hash);
+  
+    let cidv0;
+  
+    const cidv1 = cidObj.toV1().toString();
 
-  return { hash: cidv1, hashV0: cidv0 };
-};
+    try {
+      cidv0 = cidObj.toV0().toString();
+    } catch (e) {
+      // fallback when cbor is used
+      cidv0 = cidv1;
+    }
+
+    resolve ({ hash: cidv1, hashV0: cidv0 });
+  });
+
+  request.on('error', (error) => {
+    reject(error);
+  });
+
+  request.on('httpUploadProgress', (event) => {
+    cb(event);
+  });
+
+  request.send();
+}));
 
 module.exports = uploadFile;
