@@ -9,6 +9,7 @@ const upload = async ({
   data,
   key,
   bucket,
+  httpUploadProgressCallback,
 }) => {
   try {
     const s3 = initS3(
@@ -37,7 +38,7 @@ const upload = async ({
       ACL: 'public-read',
     };
 
-    const result = await uploadFile(s3, params);
+    const result = await uploadFile(s3, params, httpUploadProgressCallback);
 
     const returnData = {
       hash: result.hash,

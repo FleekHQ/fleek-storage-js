@@ -4,6 +4,7 @@ export interface uploadInput {
   data: any,
   key: string,
   bucket?: string,
+  httpUploadProgressCallback ?: (event: any) => void,
 }
 
 export interface uploadOutput {
