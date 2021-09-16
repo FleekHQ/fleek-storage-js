@@ -22,6 +22,15 @@ module.exports =  {
     // putObject
     this.putObject = () => ({
       promise: () => Promise.resolve({ ETag: '"bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq"' }),
+      on: (event, cb) => {
+        if( event === 'complete') {
+          cb({
+            data: {
+              ETag: '"bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq"',
+            }
+          })
+        }
+      } 
     });
 
     //getObject

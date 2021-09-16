@@ -4,6 +4,7 @@ const getFileFromHash = require('./methods/getFileFromHash');
 const listBuckets = require('./methods/listBuckets');
 const listFiles = require('./methods/listFiles');
 const deleteFile = require('./methods/deleteFile');
+const streamUpload = require('./methods/streamUpload');
 
 //
 // ***************************************************** 
@@ -19,6 +20,8 @@ const deleteFile = require('./methods/deleteFile');
 // *****************************************************
 // deleteFile: Deletes a file from a bucket
 // *****************************************************
+// streamUpload: Uploads from a stream
+// *****************************************************
 //
 
 const fleekJs = {
@@ -28,6 +31,7 @@ const fleekJs = {
   listBuckets,
   listFiles,
   deleteFile,
+  streamUpload,
 };
 
 module.exports = fleekJs;
