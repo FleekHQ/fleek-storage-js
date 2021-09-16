@@ -1,3 +1,21 @@
+export interface streamUploadInput {
+  apiKey: string,
+  apiSecret: string,
+  data: any,
+  key: string,
+  bucket?: string,
+}
+
+export interface streamUploadOutput {
+  hash: string,
+  hashV0: string,
+  key: string,
+  bucket: string,
+  publicUrl: string,
+}
+
+export type streamUploadType = (input: streamUploadInput) => Promise<streamUploadOutput>;
+
 export interface uploadInput {
   apiKey: string,
   apiSecret: string,
@@ -16,6 +34,7 @@ export interface uploadOutput {
 }
 
 export type uploadType = (input: uploadInput) => Promise<uploadOutput>;
+
 
 export interface getFileFromHashInput {
   hash: string,
@@ -95,6 +114,7 @@ export interface deleteFileOutput {
 
 declare module "@fleekhq/fleek-storage-js" {
   export const upload: uploadType;
+  export const streamUpload: streamUploadType;
   export const get: (input: getInput) => Promise<getOutput>;
   export const getFileFromHash: (input: getFileFromHashInput) => Promise<any>;
   export const listBuckets: (input: listBucketsInput) => Promise<listBucketsOutput[]>;
