@@ -17,7 +17,7 @@ it('uploads a file', async () => {
     'hash': 'bafybeicaubxlzbr4sgc3tfwakfn7ganskxlgxmx25pdrcsojchgs3xpfqq',
     'hashV0': 'QmSgvgwxZGaBLqkGyWemEDqikCqU52XxsYLKtdy3vGZ8uq',
     'key': 'my-file',
-    'publicUrl': 'https://storageapi.fleek.co/bucket-1/my-file'
+    'publicUrl': 'https://storageapi2.fleek.co/bucket-1/my-file'
   };
 
   expect(file).toEqual(expectedResult);
