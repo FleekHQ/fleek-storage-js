@@ -23,6 +23,7 @@
   "dependencies": {
     "aws-sdk": "^2.989.0",
     "axios": "^0.21.1",
+    "dotenv": "^16.0.1",
     "multiformats": "^9.4.7",
     "s3-streaming-upload": "^0.3.4"
   }
