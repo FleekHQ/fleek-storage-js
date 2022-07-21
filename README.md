@@ -1,12 +1,7 @@
 # Fleek Storage Js
 Fleek Storage Js is an SDK to interact with Fleek Storage.
 
-# Installation
-The package can be installed through npm.
-
-`npm install @fleekhq/fleek-storage-js`
-
-It can also be installed through yarn.
+:exclamation: Please do not use this package directly in the browser. Your API secret will be visible to users of that page.  If you need to make requests from the client side, please use an S3 SDK directly with pre-signed urls: https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html.
 
 `yarn add @fleekhq/fleek-storage-js`
 
