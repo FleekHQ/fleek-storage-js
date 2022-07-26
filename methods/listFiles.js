@@ -47,6 +47,8 @@ const listFiles = async ({
     const files = await getFileList(s3, bucketName, prefix);
 
     const promises = files.map(async (key, index) => {
+      let hash;
+      
       if (getOptions.includes(GET_OPTIONS.HASH)) {
         hash = await getHashFromKey(bucketName, key);
       }
