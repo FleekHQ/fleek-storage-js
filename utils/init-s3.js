@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const { storageEndpoint } = require('../config');
 
-const initS3 = (apiKey, apiSecret) => {
+const initS3 = (apiKey, apiSecret, domain = '') => {
   if (!apiKey || !apiSecret) {
     throw new Error('Missing Fleek credentials.');
   }
@@ -10,7 +10,7 @@ const initS3 = (apiKey, apiSecret) => {
     apiVersion: '2006-03-01',
     accessKeyId: apiKey,
     secretAccessKey: apiSecret,
-    endpoint: storageEndpoint,
+    endpoint: domain ? domain : storageEndpoint,
     region: 'us-east-1',
     s3ForcePathStyle: true,
   });

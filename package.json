@@ -1,6 +1,6 @@
 {
   "name": "@fleekhq/fleek-storage-js",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "JS SDK to interact with Fleek Storage",
   "main": "index.js",
   "scripts": {
