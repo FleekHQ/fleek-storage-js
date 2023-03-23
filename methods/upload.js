@@ -9,6 +9,7 @@ const upload = async ({
   data,
   key,
   bucket,
+  contentType,
   httpUploadProgressCallback,
 }) => {
   try {
@@ -36,6 +37,7 @@ const upload = async ({
       Key: key,
       Body: data,
       ACL: 'public-read',
+      ContentType: contentType
     };
 
     const result = await uploadFile(s3, params, httpUploadProgressCallback);
