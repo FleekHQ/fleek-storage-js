@@ -1,4 +1,11 @@
+[!CALLOUT]
+
+**We’ve upgraded!** 
+
+The old Fleek Storage SDK is now part of our all-new Fleek Platform SDK, which brings enhanced performance, new features, and broader support for all your web3 development needs. Head to [https://www.npmjs.com/package/@fleek-platform/sdk](https://www.npmjs.com/package/@fleek-platform/sdk) to get started.
+
 # Fleek Storage Js
+
 Fleek Storage Js is an SDK to interact with Fleek Storage.
 
 :exclamation: Please do not use this package directly in the browser. Your API secret will be visible to users of that page.  If you need to make requests from the client side, please use an S3 SDK directly with pre-signed urls: https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html.
