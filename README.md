@@ -1,5 +1,7 @@
 [!CALLOUT]
+
 **We’ve upgraded!** 
+
 The old Fleek Storage SDK is now part of our all-new Fleek Platform SDK, which brings enhanced performance, new features, and broader support for all your web3 development needs. Head to [https://www.npmjs.com/package/@fleek-platform/sdk](https://www.npmjs.com/package/@fleek-platform/sdk) to get started.
 
 # Fleek Storage Js
