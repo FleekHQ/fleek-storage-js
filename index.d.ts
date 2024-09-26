@@ -1,7 +1,7 @@
 export interface streamUploadInput {
   apiKey: string,
   apiSecret: string,
-  data: any,
+  stream: any,
   key: string,
   bucket?: string,
 }
